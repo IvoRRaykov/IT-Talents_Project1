@@ -1,8 +1,8 @@
 package com.example.preshlen.sologamelonesurvivour.model.managers;
 
 import com.example.preshlen.sologamelonesurvivour.R;
-import com.example.preshlen.sologamelonesurvivour.model.User;
-import com.example.preshlen.sologamelonesurvivour.model.Zone;
+import com.example.preshlen.sologamelonesurvivour.model.classes.User;
+import com.example.preshlen.sologamelonesurvivour.model.classes.Zone;
 import com.example.preshlen.sologamelonesurvivour.model.enums.LevelEnum;
 
 import java.util.ArrayList;
@@ -19,20 +19,20 @@ public class ZoneManager {
     private void createZones(){
 
         ArrayList<Zone> zones1 = new ArrayList<>();
-        zones1.add(new Zone("zone11", LevelEnum.LEVEL1, R.drawable.text_zone));
-        zones1.add(new Zone("zone12", LevelEnum.LEVEL1, R.drawable.text_zone));
-        zones1.add(new Zone("zone13", LevelEnum.LEVEL1, R.drawable.text_zone));
-        zones1.add(new Zone("zone14", LevelEnum.LEVEL1, R.drawable.text_zone));
+        zones1.add(new Zone("zone11", LevelEnum.LEVEL1, R.drawable.test_zone));
+        zones1.add(new Zone("zone12", LevelEnum.LEVEL1, R.drawable.test_zone));
+        zones1.add(new Zone("zone13", LevelEnum.LEVEL1, R.drawable.test_zone));
+        zones1.add(new Zone("zone14", LevelEnum.LEVEL1, R.drawable.test_zone));
 
         ArrayList<Zone> zones2 = new ArrayList<>();
-        zones2.add(new Zone("zone21", LevelEnum.LEVEL1, R.drawable.text_zone));
-        zones2.add(new Zone("zone22", LevelEnum.LEVEL1, R.drawable.text_zone));
-        zones2.add(new Zone("zone23", LevelEnum.LEVEL1, R.drawable.text_zone));
-        zones2.add(new Zone("zone24", LevelEnum.LEVEL1, R.drawable.text_zone));
+        zones2.add(new Zone("zone21", LevelEnum.LEVEL1, R.drawable.test_zone));
+        zones2.add(new Zone("zone22", LevelEnum.LEVEL1, R.drawable.test_zone));
+        zones2.add(new Zone("zone23", LevelEnum.LEVEL1, R.drawable.test_zone));
+        zones2.add(new Zone("zone24", LevelEnum.LEVEL1, R.drawable.test_zone));
 
         ArrayList<Zone> zones3 = new ArrayList<>();
-        zones3.add(new Zone("zone31", LevelEnum.LEVEL1, R.drawable.text_zone));
-        zones3.add(new Zone("zone32", LevelEnum.LEVEL1, R.drawable.text_zone));
+        zones3.add(new Zone("zone31", LevelEnum.LEVEL1, R.drawable.test_zone));
+        zones3.add(new Zone("zone32", LevelEnum.LEVEL1, R.drawable.test_zone));
 
         createdZones.put(LevelEnum.LEVEL1, zones1);
         createdZones.put(LevelEnum.LEVEL2, zones2);

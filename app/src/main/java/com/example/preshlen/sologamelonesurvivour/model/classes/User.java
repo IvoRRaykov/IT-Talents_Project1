@@ -1,4 +1,4 @@
-package com.example.preshlen.sologamelonesurvivour.model;
+package com.example.preshlen.sologamelonesurvivour.model.classes;
 
 import android.util.Patterns;
 
@@ -19,7 +19,7 @@ public class User {
 
     ColorEnum color;
     ArrayList<Zone> zones = new ArrayList<>();
-    private ArrayList<Question> deck;
+    private ArrayList<Question> deck = new ArrayList<>();
     private TreeMap<Integer, Question> allQuestions = new TreeMap<>();
 
 
@@ -33,6 +33,9 @@ public class User {
 
     public void addQuestionToDeck(Question q){
         this.deck.add(q);
+    }
+    public void removeQuestionFromDeck(Question q){
+        this.deck.remove(q);
     }
 
     public ArrayList<Question> getDeck() {

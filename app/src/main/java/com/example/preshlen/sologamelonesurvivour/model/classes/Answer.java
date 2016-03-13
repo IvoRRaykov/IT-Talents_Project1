@@ -1,6 +1,8 @@
-package com.example.preshlen.sologamelonesurvivour.model;
+package com.example.preshlen.sologamelonesurvivour.model.classes;
 
-public class Answer {
+import java.io.Serializable;
+
+public class Answer implements Serializable {
 
     private String text;
     private boolean isRight;

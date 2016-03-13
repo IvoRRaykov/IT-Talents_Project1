@@ -1,4 +1,4 @@
-package com.example.preshlen.sologamelonesurvivour.model;
+package com.example.preshlen.sologamelonesurvivour.model.classes;
 
 import com.example.preshlen.sologamelonesurvivour.model.enums.ColorEnum;
 import com.example.preshlen.sologamelonesurvivour.model.enums.LevelEnum;

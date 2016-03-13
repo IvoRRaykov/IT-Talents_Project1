@@ -1,11 +1,10 @@
-package com.example.preshlen.sologamelonesurvivour.model;
+package com.example.preshlen.sologamelonesurvivour.model.classes;
 
-import com.example.preshlen.sologamelonesurvivour.model.dao.QuestionDAO;
-
+import java.io.Serializable;
 import java.util.Collections;
 import java.util.List;
 
-public class Question {
+public class Question implements Serializable {
     int questionId;
     private String text;
 

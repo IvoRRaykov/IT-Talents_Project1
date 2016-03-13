@@ -10,7 +10,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".front.LoginActivity" >
+        <activity android:name=".front.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -18,8 +18,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".front.RegisterActivity" />
-        <activity android:name=".front.HomeActivity" />
-        <activity android:name=".front.MapActivity"></activity>
+        <activity android:name=".front.HomeActivity"   />
+        <activity
+            android:name=".front.MapActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".front.ChooseQuestionActivity" />
+        <activity android:name=".front.AnswerQuestionActivity"></activity>
     </application>
 
 </manifest>

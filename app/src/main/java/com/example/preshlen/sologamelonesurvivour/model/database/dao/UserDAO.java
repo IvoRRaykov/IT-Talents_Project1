@@ -1,4 +1,4 @@
-package com.example.preshlen.sologamelonesurvivour.model.dao;
+package com.example.preshlen.sologamelonesurvivour.model.database.dao;
 
 
 import android.content.ContentValues;
@@ -6,7 +6,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.example.preshlen.sologamelonesurvivour.model.User;
+import com.example.preshlen.sologamelonesurvivour.model.classes.User;
 import com.example.preshlen.sologamelonesurvivour.model.database.DatabaseHelper;
 
 

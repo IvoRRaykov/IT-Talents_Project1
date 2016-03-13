@@ -9,7 +9,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.preshlen.sologamelonesurvivour.R;
-import com.example.preshlen.sologamelonesurvivour.model.User;
+import com.example.preshlen.sologamelonesurvivour.model.classes.User;
 import com.example.preshlen.sologamelonesurvivour.model.managers.UserManager;
 
 public class RegisterActivity extends AppCompatActivity {

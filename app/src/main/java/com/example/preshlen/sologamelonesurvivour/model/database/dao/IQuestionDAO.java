@@ -1,8 +1,8 @@
-package com.example.preshlen.sologamelonesurvivour.model.dao;
+package com.example.preshlen.sologamelonesurvivour.model.database.dao;
 
-import com.example.preshlen.sologamelonesurvivour.model.Answer;
-import com.example.preshlen.sologamelonesurvivour.model.Question;
-import com.example.preshlen.sologamelonesurvivour.model.User;
+import com.example.preshlen.sologamelonesurvivour.model.classes.Answer;
+import com.example.preshlen.sologamelonesurvivour.model.classes.Question;
+import com.example.preshlen.sologamelonesurvivour.model.classes.User;
 
 import java.util.HashMap;
 import java.util.List;

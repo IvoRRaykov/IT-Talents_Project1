@@ -2,10 +2,10 @@ package com.example.preshlen.sologamelonesurvivour.model.managers;
 
 import android.content.Context;
 
-import com.example.preshlen.sologamelonesurvivour.model.Answer;
-import com.example.preshlen.sologamelonesurvivour.model.Question;
-import com.example.preshlen.sologamelonesurvivour.model.User;
-import com.example.preshlen.sologamelonesurvivour.model.dao.QuestionDAO;
+import com.example.preshlen.sologamelonesurvivour.model.classes.Answer;
+import com.example.preshlen.sologamelonesurvivour.model.classes.Question;
+import com.example.preshlen.sologamelonesurvivour.model.classes.User;
+import com.example.preshlen.sologamelonesurvivour.model.database.dao.QuestionDAO;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -35,15 +35,13 @@ public class QuestionManager {
         questionDAO.addQuestionToPlayer(player, q);
     }
 
-    public void createQuestionPackFroUser(User player){
-        if(ifUserHasQuestions(player)){
+    public void createQuestionPackFroUser(User player) {
+        if (ifUserHasQuestions(player)) {
             fillAllQuestionsFromPreviousGames(player);
-        }
-        else{
+        } else {
             fillAllQuestions(player);
         }
     }
-
 
 
     private void fillAllQuestions(User player) {
@@ -89,11 +87,7 @@ public class QuestionManager {
     }
 
 
-
     private boolean ifUserHasQuestions(User player) {
         return questionDAO.checkIFPlayerHasQuestions(player);
     }
-
-
-
 }

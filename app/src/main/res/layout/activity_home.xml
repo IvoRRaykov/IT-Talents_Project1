@@ -6,19 +6,27 @@
     tools:context="com.example.presshlen.sologamelonesurvivour.front.HomeActivity">
 
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="START"
-        android:id="@+id/start_button"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="50dp" />
 
     <Button
+        android:id="@+id/start_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="BUILD DECK"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="START" />
+
+    <Button
         android:id="@+id/build_deck_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/start_button"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:text="BUILD DECK" />
+
+
 </RelativeLayout>

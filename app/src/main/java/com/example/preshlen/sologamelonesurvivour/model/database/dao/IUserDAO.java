@@ -1,7 +1,7 @@
-package com.example.preshlen.sologamelonesurvivour.model.dao;
+package com.example.preshlen.sologamelonesurvivour.model.database.dao;
 
 
-import com.example.preshlen.sologamelonesurvivour.model.User;
+import com.example.preshlen.sologamelonesurvivour.model.classes.User;
 
 /**
  * Created by Presshlen on 3/8/2016.
