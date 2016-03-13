@@ -15,6 +15,8 @@ import com.example.preshlen.sologamelonesurvivour.R;
 import com.example.preshlen.sologamelonesurvivour.model.User;
 import com.example.preshlen.sologamelonesurvivour.model.UserManager;
 
+import pl.com.salsoft.sqlitestudioremote.SQLiteStudioService;
+
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -29,6 +31,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
         Log.e("da", "create");
         manager = UserManager.getInstance(LoginActivity.this);
 

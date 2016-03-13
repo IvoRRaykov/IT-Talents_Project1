@@ -5,6 +5,8 @@ import android.content.Context;
 
 import com.example.preshlen.sologamelonesurvivour.model.dao.UserDAO;
 
+import java.util.TreeMap;
+
 
 public class UserManager {
     public static User player;
@@ -22,6 +24,8 @@ public class UserManager {
             ourInstance = new UserManager(context);
         return ourInstance;
     }
+
+
 
     public boolean existUsername(String username) {
 

@@ -15,8 +15,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     // database name and version
-    public static final String DATABASE_NAME = "NA_IVO_BAZATA";
-    public static final int DATABASE_VERSION = 6;
+    public static final String DATABASE_NAME = "NA_IVO_BAZATA4";
+    public static final int DATABASE_VERSION = 1;
 
     // tables
 

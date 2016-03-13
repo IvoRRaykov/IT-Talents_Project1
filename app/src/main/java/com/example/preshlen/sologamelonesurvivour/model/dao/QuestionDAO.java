@@ -54,6 +54,7 @@ public class QuestionDAO {
                 answers.add(new Answer(questionIDString, false));
                 questions.put(text, answers);
 
+
             } while (c.moveToNext());
         }
         db.close();
@@ -102,7 +103,7 @@ public class QuestionDAO {
         Cursor c = db.rawQuery(query, null);
 
         TreeMap<Integer, Question> questions = new TreeMap<>();
-        int i =0;
+        int i =1;
         if (c.moveToFirst()) {
             do {
                 int questionID = c.getInt(c.getColumnIndex(dbh.QUESTION_ID));
@@ -113,6 +114,22 @@ public class QuestionDAO {
         return questions;
     }
 
+
+    public boolean checkIFPlayerHasQuestions(User player) {
+        SQLiteDatabase db = dbh.getReadableDatabase();
+        String selectQuery = "SELECT * FROM " + dbh.USERS_QUESTIONS
+                + " WHERE " + dbh.HOLDER_ID + " = \"" + player.getUserId() + "\"";
+
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        if (c != null && c.moveToFirst()) {
+            db.close();
+            return true;
+        } else {
+            db.close();
+            return false;
+        }
+    }
 
     public long addQuestionToPlayer(User player, Question question) {
         SQLiteDatabase db = dbh.getWritableDatabase();

@@ -11,29 +11,37 @@ import com.example.preshlen.sologamelonesurvivour.model.Question;
 import com.example.preshlen.sologamelonesurvivour.model.QuestionManager;
 import com.example.preshlen.sologamelonesurvivour.model.User;
 import com.example.preshlen.sologamelonesurvivour.model.UserManager;
-import com.example.preshlen.sologamelonesurvivour.model.dao.QuestionDAO;
 
 import java.util.Map;
 
 public class HomeActivity extends AppCompatActivity {
     QuestionManager qm = QuestionManager.getInstance(this);
     User player = UserManager.getPlayer();
+
     Button startButton;
     Button buildDeckButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        qm.createQuestionPackFroUser(player);
+
         startButton = (Button) findViewById(R.id.start_button);
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.e("player" , player.getAllQuestions().get(1).getText());
-
-                for(Map.Entry<Integer,Question> entry: player.getAllQuestions().entrySet()){
-                   // Log.e("msg" , entry.getValue().getText());
+                StringBuilder sb = new StringBuilder("");
+                for (Map.Entry<Integer, Question> entry : player.getAllQuestions().entrySet()) {
+                    Log.e("da" , "ne");
+                    sb.append(entry.getValue().getText());
+                    sb.append(" ");
                 }
+
+
+                startButton.setText(sb.toString());
+
             }
         });
 
@@ -41,7 +49,7 @@ public class HomeActivity extends AppCompatActivity {
         buildDeckButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                qm.fillAllQuestions(player);
+
             }
         });
 

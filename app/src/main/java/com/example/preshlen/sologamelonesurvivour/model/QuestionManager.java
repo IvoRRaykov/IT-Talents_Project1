@@ -1,9 +1,6 @@
 package com.example.preshlen.sologamelonesurvivour.model;
 
 import android.content.Context;
-import android.database.CursorIndexOutOfBoundsException;
-import android.util.Log;
-
 
 import com.example.preshlen.sologamelonesurvivour.model.dao.QuestionDAO;
 
@@ -12,12 +9,13 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
+import java.util.TreeMap;
 
 
 public class QuestionManager {
 
 
-    private static final int START_QUESTIONS = 30;
+    private static final int START_QUESTIONS = 15;
     private static QuestionManager ourInstance;
     QuestionDAO questionDAO;
 
@@ -31,41 +29,69 @@ public class QuestionManager {
         return ourInstance;
     }
 
+    public void addQuestoinToPlayersDatabase(User player, Question q) {
+        questionDAO.addQuestionToPlayer(player, q);
+    }
 
-    public void fillAllQuestions(User player) {
+    public void createQuestionPackFroUser(User player){
+        if(ifUserHasQuestions(player)){
+            fillAllQuestionsFromPreviousGames(player);
+        }
+        else{
+            fillAllQuestions(player);
+        }
+    }
 
-        try {
-            questionDAO.getAllQuestionsForUser(player);
 
-        } catch (CursorIndexOutOfBoundsException ex) {
 
-            HashMap<String, List<Answer>> qs = questionDAO.selectAllQuestions();
-            Set<String> someQuestions = qs.keySet();
-            for (int i = 1; i <= START_QUESTIONS; i++) {
+    private void fillAllQuestions(User player) {
 
-                ArrayList<String> questionsArray = new ArrayList<String>(someQuestions);
-                Collections.shuffle(questionsArray);
-                if (questionsArray.get(0) != null) {
-                    Question q = new Question(questionsArray.get(0));
-                    List<Answer> answers = qs.get(q.getText());
-                    if (answers.size() != 4) {
-                        q.setQuestionId(Integer.parseInt(answers.remove(answers.size() - 1).toString()));
-                    }
-                    q.setAnswers(answers);
-                    questionDAO.addQuestionToPlayer(player, q);
-                    player.addToAllQuestions(i, q);
-                    questionsArray.remove(0);
+        HashMap<String, List<Answer>> qs = questionDAO.selectAllQuestions();
+        Set<String> someQuestions = qs.keySet();
+        for (int i = 1; i <= START_QUESTIONS; i++) {
 
+            ArrayList<String> questionsArray = new ArrayList<String>(someQuestions);
+            Collections.shuffle(questionsArray);
+            if (questionsArray.get(0) != null) {
+                Question q = new Question(questionsArray.get(0));
+                List<Answer> answers = qs.get(q.getText());
+                if (answers.size() != 4) {
+                    q.setQuestionId(Integer.parseInt(answers.remove(answers.size() - 1).toString()));
                 } else {
                     i--;
                     continue;
                 }
+
+                q.setAnswers(answers);
+
+                player.addToAllQuestions(i, q);
+                questionsArray.remove(0);
+
+            } else {
+                i--;
+                continue;
             }
-
-
         }
-
+        addAllQuestionsToTable(player);
     }
+
+    private void fillAllQuestionsFromPreviousGames(User player) {
+        player.setAllQuestions(questionDAO.getAllQuestionsForUser(player));
+    }
+
+
+    private void addAllQuestionsToTable(User player) {
+        for (int i = 1; i < player.getAllQuestions().size(); i++) {
+            questionDAO.addQuestionToPlayer(player, player.getAllQuestions().get(i));
+        }
+    }
+
+
+
+    private boolean ifUserHasQuestions(User player) {
+        return questionDAO.checkIFPlayerHasQuestions(player);
+    }
+
 
 
 }
