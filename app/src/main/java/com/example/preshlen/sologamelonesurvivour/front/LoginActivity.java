@@ -13,9 +13,7 @@ import android.widget.Toast;
 
 import com.example.preshlen.sologamelonesurvivour.R;
 import com.example.preshlen.sologamelonesurvivour.model.User;
-import com.example.preshlen.sologamelonesurvivour.model.UserManager;
-
-import pl.com.salsoft.sqlitestudioremote.SQLiteStudioService;
+import com.example.preshlen.sologamelonesurvivour.model.managers.UserManager;
 
 
 public class LoginActivity extends AppCompatActivity {

@@ -1,11 +1,10 @@
-package com.example.preshlen.sologamelonesurvivour.model;
+package com.example.preshlen.sologamelonesurvivour.model.managers;
 
 
 import android.content.Context;
 
+import com.example.preshlen.sologamelonesurvivour.model.User;
 import com.example.preshlen.sologamelonesurvivour.model.dao.UserDAO;
-
-import java.util.TreeMap;
 
 
 public class UserManager {

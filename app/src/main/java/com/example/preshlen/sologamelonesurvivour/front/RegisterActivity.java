@@ -1,7 +1,6 @@
 package com.example.preshlen.sologamelonesurvivour.front;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -11,7 +10,7 @@ import android.widget.Toast;
 
 import com.example.preshlen.sologamelonesurvivour.R;
 import com.example.preshlen.sologamelonesurvivour.model.User;
-import com.example.preshlen.sologamelonesurvivour.model.UserManager;
+import com.example.preshlen.sologamelonesurvivour.model.managers.UserManager;
 
 public class RegisterActivity extends AppCompatActivity {
 

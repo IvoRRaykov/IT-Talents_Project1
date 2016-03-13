@@ -18,7 +18,7 @@ import java.util.TreeMap;
 /**
  * Created by Preshlen on 3/11/2016.
  */
-public class QuestionDAO {
+public class QuestionDAO implements IQuestionDAO{
 
 
     private DatabaseHelper dbh;

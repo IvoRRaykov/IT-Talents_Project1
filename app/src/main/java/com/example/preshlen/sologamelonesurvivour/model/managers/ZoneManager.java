@@ -1,6 +1,9 @@
-package com.example.preshlen.sologamelonesurvivour.model;
+package com.example.preshlen.sologamelonesurvivour.model.managers;
 
 import com.example.preshlen.sologamelonesurvivour.R;
+import com.example.preshlen.sologamelonesurvivour.model.User;
+import com.example.preshlen.sologamelonesurvivour.model.Zone;
+import com.example.preshlen.sologamelonesurvivour.model.enums.LevelEnum;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -39,7 +42,8 @@ public class ZoneManager {
 
 
 
-    public static void giveZonesToPlayers(User player, User otherPlayer) {
+    public static void giveZonesToPlayer(User player) {
+        User otherPlayer = new User("Bot","Bot","Bot");
         for (LevelEnum enumLevel : createdZones.keySet()) {
             ArrayList<Zone> zones = createdZones.get(enumLevel);
             ArrayList<Zone> playerOneZones = player.getZones();

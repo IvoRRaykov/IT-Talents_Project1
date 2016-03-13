@@ -1,5 +1,8 @@
 package com.example.preshlen.sologamelonesurvivour.model;
 
+import com.example.preshlen.sologamelonesurvivour.model.enums.ColorEnum;
+import com.example.preshlen.sologamelonesurvivour.model.enums.LevelEnum;
+
 public class Zone {
 
     private String name;
@@ -9,7 +12,7 @@ public class Zone {
     private int lifes;
     private int imageID;
 
-    Zone(String name, LevelEnum level, int imageID) {
+    public Zone(String name, LevelEnum level, int imageID) {
         this.name = name;
         this.level = level;
         this.imageID = imageID;

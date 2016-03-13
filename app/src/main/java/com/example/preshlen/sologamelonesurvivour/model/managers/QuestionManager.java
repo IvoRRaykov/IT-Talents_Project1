@@ -1,7 +1,10 @@
-package com.example.preshlen.sologamelonesurvivour.model;
+package com.example.preshlen.sologamelonesurvivour.model.managers;
 
 import android.content.Context;
 
+import com.example.preshlen.sologamelonesurvivour.model.Answer;
+import com.example.preshlen.sologamelonesurvivour.model.Question;
+import com.example.preshlen.sologamelonesurvivour.model.User;
 import com.example.preshlen.sologamelonesurvivour.model.dao.QuestionDAO;
 
 import java.util.ArrayList;
@@ -9,7 +12,6 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
-import java.util.TreeMap;
 
 
 public class QuestionManager {

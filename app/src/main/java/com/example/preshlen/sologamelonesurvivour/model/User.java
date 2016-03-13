@@ -2,6 +2,8 @@ package com.example.preshlen.sologamelonesurvivour.model;
 
 import android.util.Patterns;
 
+import com.example.preshlen.sologamelonesurvivour.model.enums.ColorEnum;
+
 import java.util.ArrayList;
 import java.util.TreeMap;
 
@@ -14,7 +16,10 @@ public class User {
     private String password;//this field is required
     private String userName;//this field is required
 
+
+    ColorEnum color;
     ArrayList<Zone> zones = new ArrayList<>();
+    private ArrayList<Question> deck;
     private TreeMap<Integer, Question> allQuestions = new TreeMap<>();
 
 
@@ -22,14 +27,31 @@ public class User {
         this.setEmail(mail);
         this.setPassword(password);
         this.setUserName(userName);
+        this.setColor();
 
     }
 
+    public void addQuestionToDeck(Question q){
+        this.deck.add(q);
+    }
+
+    public ArrayList<Question> getDeck() {
+        return deck;
+    }
 
     public void addToAllQuestions(int i, Question q){
-        this.allQuestions.put(i,q);
+        this.allQuestions.put(i, q);
     }
 
+    private void setColor(){
+        int rand = 1 + (int)(Math.random() * ((2 - 1) + 1));
+        this.color = ColorEnum.getEnumByNumber(rand);
+    }
+
+    public ColorEnum getColor() {
+        return color;
+    }
+    
     public TreeMap<Integer, Question> getAllQuestions() throws NullPointerException {
         return allQuestions;
     }
@@ -52,7 +74,6 @@ public class User {
 
     public void setEmail(String email) throws IllegalArgumentException {
         if (Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            //TODO check in databese for existing email.
             this.email = email;
         } else {
             throw new IllegalArgumentException();
@@ -72,7 +93,6 @@ public class User {
     }
 
     public void setUserName(String userName) {
-        //TODO check in database
         this.userName = userName;
     }
 
@@ -83,4 +103,5 @@ public class User {
     public long getUserId() {
         return userId;
     }
+
 }
