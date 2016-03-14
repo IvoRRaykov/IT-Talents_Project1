@@ -7,39 +7,38 @@ import com.example.preshlen.sologamelonesurvivour.model.enums.LevelEnum;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Preshlen on 3/10/2016.
  */
 public class ZoneManager {
 
-    private static HashMap<LevelEnum, ArrayList<Zone>> createdZones;
-    //ArrayList<Zone> zones;
+    private static HashMap<LevelEnum, ArrayList<Zone>> createdZones = new HashMap<LevelEnum, ArrayList<Zone>>();
 
-    private void createZones(){
+
+    public static void createZones(){
 
         ArrayList<Zone> zones1 = new ArrayList<>();
-        zones1.add(new Zone("zone11", LevelEnum.LEVEL1, R.drawable.test_zone));
-        zones1.add(new Zone("zone12", LevelEnum.LEVEL1, R.drawable.test_zone));
-        zones1.add(new Zone("zone13", LevelEnum.LEVEL1, R.drawable.test_zone));
-        zones1.add(new Zone("zone14", LevelEnum.LEVEL1, R.drawable.test_zone));
+        zones1.add(new Zone("zone11", LevelEnum.LEVEL1));
+        zones1.add(new Zone("zone12", LevelEnum.LEVEL1));
+        zones1.add(new Zone("zone13", LevelEnum.LEVEL1));
+        zones1.add(new Zone("zone14", LevelEnum.LEVEL1));
 
         ArrayList<Zone> zones2 = new ArrayList<>();
-        zones2.add(new Zone("zone21", LevelEnum.LEVEL1, R.drawable.test_zone));
-        zones2.add(new Zone("zone22", LevelEnum.LEVEL1, R.drawable.test_zone));
-        zones2.add(new Zone("zone23", LevelEnum.LEVEL1, R.drawable.test_zone));
-        zones2.add(new Zone("zone24", LevelEnum.LEVEL1, R.drawable.test_zone));
+        zones2.add(new Zone("zone21", LevelEnum.LEVEL1));
+        zones2.add(new Zone("zone22", LevelEnum.LEVEL1));
+        zones2.add(new Zone("zone23", LevelEnum.LEVEL1));
+        zones2.add(new Zone("zone24", LevelEnum.LEVEL1));
 
         ArrayList<Zone> zones3 = new ArrayList<>();
-        zones3.add(new Zone("zone31", LevelEnum.LEVEL1, R.drawable.test_zone));
-        zones3.add(new Zone("zone32", LevelEnum.LEVEL1, R.drawable.test_zone));
+        zones3.add(new Zone("zone31", LevelEnum.LEVEL1));
+        zones3.add(new Zone("zone32", LevelEnum.LEVEL1));
 
         createdZones.put(LevelEnum.LEVEL1, zones1);
         createdZones.put(LevelEnum.LEVEL2, zones2);
         createdZones.put(LevelEnum.LEVEL3, zones3);
     }
-
-
 
 
     public static void giveZonesToPlayer(User player) {
@@ -61,6 +60,9 @@ public class ZoneManager {
                 player.setZones(playerOneZones);
                 otherPlayer.setZones(playerTwoZones);
             }
+        }
+        for(Zone zone: player.getZones()){
+            zone.setColor(player.getColor());
         }
     }
 }

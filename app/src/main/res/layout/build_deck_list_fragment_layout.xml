@@ -4,7 +4,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
+    <TextView
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Remaining questions:"
+        android:layout_marginBottom="2dp"
+        />
 <TextView
+    android:gravity="center"
+    android:id="@+id/remaining_qeustions"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:text="remaining questions"
@@ -12,7 +21,7 @@
     />
     <ListView
         android:id="@android:id/list"
-        android:background="#000000"
+        android:background="@drawable/layout_bg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
     </ListView>

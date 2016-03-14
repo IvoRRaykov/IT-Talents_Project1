@@ -15,6 +15,7 @@ import com.example.preshlen.sologamelonesurvivour.model.classes.Question;
 import com.example.preshlen.sologamelonesurvivour.model.managers.UserManager;
 
 public class ChooseQuestionActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
+    int questionsToAsk =0;
 
     ListView questionsList;
     ArrayAdapter adapter;
@@ -23,6 +24,10 @@ public class ChooseQuestionActivity extends AppCompatActivity implements Adapter
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_question);
+
+        Bundle extras = getIntent().getExtras();
+        questionsToAsk = extras.getInt("atacks");
+
         questionsList = (ListView) findViewById(R.id.questions_list);
         adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1);
         adapter.addAll(UserManager.getDeck());
@@ -35,6 +40,7 @@ public class ChooseQuestionActivity extends AppCompatActivity implements Adapter
         Intent intent = new Intent(this, AnswerQuestionActivity.class);
         Question question = UserManager.getQuestionFromDeck(((String) adapter.getItem(position)));
         intent.putExtra("question", question);
+
         startActivityForResult(intent, 2);
     }
 
@@ -45,6 +51,14 @@ public class ChooseQuestionActivity extends AppCompatActivity implements Adapter
                 Intent returnIntent = new Intent();
                 setResult(Activity.RESULT_OK, returnIntent);
                 finish();
+            }
+            else{
+                this.questionsToAsk--;
+                if(this.questionsToAsk ==0){
+                    Intent returnIntent = new Intent();
+                    setResult(Activity.RESULT_OK, returnIntent);
+                    finish();
+                }
             }
 
         }

@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.TextView;
 
 import com.example.preshlen.sologamelonesurvivour.R;
 import com.example.preshlen.sologamelonesurvivour.front.HomeActivity;
@@ -17,10 +18,13 @@ import com.example.preshlen.sologamelonesurvivour.model.managers.UserManager;
  */
 public class BuildDeckFragment extends ListFragment implements AdapterView.OnItemClickListener {
     ArrayAdapter adapter;
+    TextView remainingQuestions;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.build_deck_list_fragment_layout, container, false);
+        remainingQuestions = (TextView) view.findViewById(R.id.remaining_qeustions);
+        remainingQuestions.setText(String.valueOf(UserManager.getDeckFreeSpaceLeft()));
         return view;
     }
 
@@ -35,7 +39,7 @@ public class BuildDeckFragment extends ListFragment implements AdapterView.OnIte
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        UserManager.addQuestionToDeck((String)adapter.getItem(position));
+        UserManager.addQuestionToDeck((String) adapter.getItem(position));
         adapter.remove(adapter.getItem(position));
         adapter.notifyDataSetChanged();
         if (UserManager.isDeckFull()) {
@@ -43,5 +47,6 @@ public class BuildDeckFragment extends ListFragment implements AdapterView.OnIte
                 ((HomeActivity) getActivity()).onBackPressed();
             }
         }
+        remainingQuestions.setText(String.valueOf(UserManager.getDeckFreeSpaceLeft()));
     }
 }

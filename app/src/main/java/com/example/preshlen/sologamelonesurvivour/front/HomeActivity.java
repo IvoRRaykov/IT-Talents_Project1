@@ -28,6 +28,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 //----------
         startButton = (Button) findViewById(R.id.start_button);
         startButton.setOnClickListener(this);
+        startButton.setVisibility(View.GONE);
 
         buildDeckButton = (Button) findViewById(R.id.build_deck_button);
         buildDeckButton.setOnClickListener(this);
@@ -54,13 +55,15 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         fragmentTransaction.addToBackStack(" asd");
         fragmentTransaction.commit();
         buildDeckButton.setVisibility(View.GONE);
-        startButton.setVisibility(View.GONE);
+
     }
 
     @Override
     public void onBackPressed() {
         if (getSupportFragmentManager().getFragments().size() > 0) {
-            buildDeckButton.setVisibility(View.VISIBLE);
+            if(!UserManager.isDeckFull()){
+                buildDeckButton.setVisibility(View.VISIBLE);
+            }
             startButton.setVisibility(View.VISIBLE);
         }
         super.onBackPressed();

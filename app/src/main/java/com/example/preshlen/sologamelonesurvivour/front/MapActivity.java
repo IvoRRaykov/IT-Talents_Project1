@@ -13,8 +13,10 @@ import com.example.preshlen.sologamelonesurvivour.R;
 import com.example.preshlen.sologamelonesurvivour.model.classes.Question;
 import com.example.preshlen.sologamelonesurvivour.model.classes.Zone;
 import com.example.preshlen.sologamelonesurvivour.model.managers.UserManager;
+import com.example.preshlen.sologamelonesurvivour.model.managers.ZoneManager;
 
 public class MapActivity extends AppCompatActivity implements View.OnClickListener {
+
 
     private ImageView zoneOne;
     private ImageView zoneFive;
@@ -30,7 +32,6 @@ public class MapActivity extends AppCompatActivity implements View.OnClickListen
         zoneFive = (ImageView) findViewById(R.id.zone_five);
         zoneFive.setOnClickListener(this);
         isMyTurn = false;
-        Log.e("tag", isMyTurn+ "");
     }
 
     @Override
@@ -42,10 +43,11 @@ public class MapActivity extends AppCompatActivity implements View.OnClickListen
                 questionsToAsk = 1;
                 break;
             case R.id.zone_five:
-                questionsToAsk = 5;
+                questionsToAsk = 3;
                 break;
         }
-        startActivityForResult(intent,1);
+        intent.putExtra("atacks",questionsToAsk);
+        startActivityForResult(intent, 1);
     }
 
     @Override
@@ -53,6 +55,8 @@ public class MapActivity extends AppCompatActivity implements View.OnClickListen
         if(resultCode == Activity.RESULT_OK) {
             Bundle extras = data.getExtras();
             isMyTurn = !isMyTurn;
+
+            //to add logic on defense
             Log.e("tag", isMyTurn+ "");
         }
     }

@@ -10,12 +10,10 @@ public class Zone {
     private ColorEnum color;
     private int points;
     private int lifes;
-    private int imageID;
 
-    public Zone(String name, LevelEnum level, int imageID) {
+    public Zone(String name, LevelEnum level) {
         this.name = name;
         this.level = level;
-        this.imageID = imageID;
         switch (level) {
             case LEVEL1:
                 this.points = 100;
@@ -41,9 +39,6 @@ public class Zone {
         return points;
     }
 
-    public int getImageID() {
-        return imageID;
-    }
 
     public void setColor(ColorEnum color) {
         this.color = color;

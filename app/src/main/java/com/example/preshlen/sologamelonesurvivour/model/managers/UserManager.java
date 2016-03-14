@@ -49,7 +49,7 @@ public class UserManager {
     }
 
     //pri ataka
-    public static Question removieQuestionFromDeck(String s) {
+    public static Question removeQuestionFromDeck(String s) {
         Question q = null;
         for (Map.Entry<Integer, Question> entry : player.getAllQuestions().entrySet()) {
             if (entry.getValue().getText().equals(s)) {
@@ -62,7 +62,7 @@ public class UserManager {
 
 
     public static int getDeckFreeSpaceLeft() {
-        return DECK_SIZE - player.getDeck().size();
+        return DECK_SIZE - (player.getDeck().size()+1);
     }
 
     public boolean existUsername(String username) {

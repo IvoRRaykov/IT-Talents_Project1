@@ -18,28 +18,35 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:adjustViewBounds="true"
-            android:background="@color/colorPrimary" />
+            android:background="@drawable/blue"
+            android:layout_margin="2dp"/>
 
         <ImageView
+            android:id="@+id/zone_two"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:adjustViewBounds="true"
-            android:background="@color/colorAccent" />
+            android:background="@drawable/blue"
+            android:layout_margin="2dp" />
 
         <ImageView
+            android:id="@+id/zone_three"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:adjustViewBounds="true"
-            android:src="@drawable/test_zone" />
+            android:background="@drawable/blue"
+            android:layout_margin="2dp" />
 
         <ImageView
+            android:id="@+id/zone_four"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:adjustViewBounds="true"
-            android:background="@color/colorAccent" />
+            android:background="@drawable/blue"
+            android:layout_margin="2dp" />
 
         <ImageView
             android:id="@+id/zone_five"
@@ -47,7 +54,8 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:adjustViewBounds="true"
-            android:background="@color/colorPrimary" />
+            android:background="@drawable/blue"
+            android:layout_margin="2dp" />
 
     </LinearLayout>
 
@@ -58,39 +66,49 @@
         android:orientation="vertical">
 
         <ImageView
+            android:id="@+id/zone_one_other"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:adjustViewBounds="true"
-            android:src="@drawable/test_zone" />
+            android:background="@drawable/red"
+            android:layout_margin="2dp" />
 
         <ImageView
+            android:id="@+id/zone_two_other"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:adjustViewBounds="true"
-            android:src="@drawable/test_zone" />
+            android:background="@drawable/red"
+            android:layout_margin="2dp" />
 
         <ImageView
+            android:id="@+id/zone_three_other"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:adjustViewBounds="true"
-            android:src="@drawable/test_zone" />
+            android:background="@drawable/red"
+            android:layout_margin="2dp" />
 
         <ImageView
+            android:id="@+id/zone_four_other"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:adjustViewBounds="true"
-            android:src="@drawable/test_zone" />
+            android:background="@drawable/red"
+            android:layout_margin="2dp" />
 
         <ImageView
+            android:id="@+id/zone_five_other"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:adjustViewBounds="true"
-            android:src="@drawable/test_zone" />
+            android:background="@drawable/red"
+            android:layout_margin="2dp" />
     </LinearLayout>
 
 </LinearLayout>
