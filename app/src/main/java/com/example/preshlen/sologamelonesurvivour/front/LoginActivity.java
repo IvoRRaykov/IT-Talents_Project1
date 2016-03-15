@@ -30,7 +30,6 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        Log.e("da", "create");
         manager = UserManager.getInstance(LoginActivity.this);
 
         signIn = (Button) findViewById(R.id.signInButton);
@@ -41,21 +40,17 @@ public class LoginActivity extends AppCompatActivity {
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.e("da", "onclick");
                 String emailText = email.getText().toString();
                 String passwordText = password.getText().toString();
                 if (emailText.isEmpty()) {
-                    Log.e("da", "emptyemail");
                     email.setError("This field is required.");
                     return;
                 }
                 if (passwordText.isEmpty()) {
-                    Log.e("da", "emptypass");
 
                     password.setError("This field is required.");
                     return;
                 }
-                Log.e("da", "before managerlogin");
                 User user = manager.login(emailText, passwordText);
                 if (user == null) {
                     Toast.makeText(LoginActivity.this, "Wrong email or password", Toast.LENGTH_SHORT).show();

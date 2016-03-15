@@ -2,25 +2,31 @@ package com.example.preshlen.sologamelonesurvivour.front;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.preshlen.sologamelonesurvivour.R;
 import com.example.preshlen.sologamelonesurvivour.model.classes.Question;
+import com.example.preshlen.sologamelonesurvivour.model.managers.QuestionManager;
+import com.example.preshlen.sologamelonesurvivour.model.managers.UserManager;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 
+import org.w3c.dom.Text;
+
 public class AnswerQuestionActivity extends AppCompatActivity implements View.OnClickListener {
-    public static final int MIN_TIME_TO_THINK = 2000;
-    public static final int MAX_TIME_TO_THINK = 6000;
+    public static final int MIN_TIME_TO_THINK = 8000;
+    public static final int MAX_TIME_TO_THINK = 12000;
+    Handler myHandler = new Handler();
 
-
-    private Question question;
+    private Question question = null;
 
     private TextView questionTv;
     private TextView firstAnswer;
@@ -35,9 +41,13 @@ public class AnswerQuestionActivity extends AppCompatActivity implements View.On
 
         questionTv = (TextView) findViewById(R.id.question);
         firstAnswer = (TextView) findViewById(R.id.first_answer);
+        firstAnswer.setOnClickListener(this);
         secondAnswer = (TextView) findViewById(R.id.second_answer);
+        secondAnswer.setOnClickListener(this);
         thirdAnswer = (TextView) findViewById(R.id.third_answer);
+        thirdAnswer.setOnClickListener(this);
         fourthAnswer = (TextView) findViewById(R.id.fourth_answer);
+        fourthAnswer.setOnClickListener(this);
         Bundle extras = getIntent().getExtras();
         question = (Question) extras.getSerializable("question");
         this.questionTv.setText(question.getText());
@@ -47,23 +57,28 @@ public class AnswerQuestionActivity extends AppCompatActivity implements View.On
         this.fourthAnswer.setText(question.getAnswers().get(3).getText());
 
         if (!MapActivity.isMyTurn()) {
-            Toast.makeText(getApplicationContext(), "bot chose answer 1", Toast.LENGTH_SHORT).show();
 
             Intent returnIntent = new Intent();
-            boolean rightAnswer = question.getRightAnswer().getText().equals(randomAnswer().getText().toString());
+            TextView botChoice = randomAnswer();
+            boolean rightAnswer = question.getRightAnswer().getText().equals(botChoice.getText().toString());
+            if(rightAnswer){
+                botChoice.setBackgroundColor(Color.GREEN);
+            }
+            else{
+                botChoice.setBackgroundColor(Color.RED);
+            }
             returnIntent.putExtra("rightAnswer", rightAnswer);
             setResult(Activity.RESULT_OK, returnIntent);
-
-            int thinkingTime = MIN_TIME_TO_THINK + (int)(Math.random() * ((MAX_TIME_TO_THINK - MIN_TIME_TO_THINK) + 1));
-
-            new Handler().postDelayed(new Runnable() {
+            String toast = (rightAnswer)? "bot chose: " + botChoice.getText().toString() + " and is RIGHT!" : "bot chose: " + botChoice.getText().toString() + " and is WRONG!";
+            Toast.makeText(getApplicationContext(), toast, Toast.LENGTH_LONG).show();
+            myHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     finish();
                 }
-            }, thinkingTime);
+            }, MIN_TIME_TO_THINK);
         } else {
-            Toast.makeText(getApplicationContext(), " MY TURN", Toast.LENGTH_SHORT).show();
+
         }
     }
 
@@ -85,12 +100,35 @@ public class AnswerQuestionActivity extends AppCompatActivity implements View.On
                 break;
         }
         String answer = question.getAnswers().get(answerIndex).getText();
-        Intent returnIntent = new Intent();
-        boolean rightAnswer = question.getRightAnswer().getText().equals(answer);
+        final Intent returnIntent = new Intent();
+        final boolean rightAnswer = question.getRightAnswer().getText().equals(answer);
+        if(rightAnswer){
+            v.setBackgroundColor(Color.GREEN);
+        }
+        else{
+            v.setBackgroundColor(Color.RED);
+        }
         returnIntent.putExtra("rightAnswer", rightAnswer);
         setResult(Activity.RESULT_OK, returnIntent);
-        finish();
+        if (rightAnswer) {
+            QuestionManager.getInstance(AnswerQuestionActivity.this).addQuestoinToPlayersDatabase(UserManager.getPlayer(), question);
+            Toast.makeText(AnswerQuestionActivity.this, "GG, you won that question ! Cheer Up!", Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(AnswerQuestionActivity.this, "Sorry kiddo, wrong answer :((", Toast.LENGTH_SHORT).show();
+        }
+        myHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+                finish();
+            }
+        }, MIN_TIME_TO_THINK);
+
+
     }
+
+
+
 
     TextView randomAnswer(){
         int rand = 1 + (int)(Math.random() * ((4 - 1) + 1));

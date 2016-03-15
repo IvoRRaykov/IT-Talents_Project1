@@ -11,6 +11,7 @@ import com.example.preshlen.sologamelonesurvivour.model.classes.User;
 import com.example.preshlen.sologamelonesurvivour.model.database.DatabaseHelper;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.TreeMap;
@@ -84,10 +85,10 @@ public class QuestionDAO implements IQuestionDAO{
         answers.add(new Answer(wrongAnswer2, false));
         answers.add(new Answer(wrongAnswer3, false));
 
+        Collections.shuffle(answers);
         Question question = new Question(text);
         question.setAnswers(answers);
         question.setQuestionId(questionID);
-
 
         db.close();
         return question;
@@ -144,4 +145,6 @@ public class QuestionDAO implements IQuestionDAO{
         db.close();
         return pairID;
     }
+
+
 }

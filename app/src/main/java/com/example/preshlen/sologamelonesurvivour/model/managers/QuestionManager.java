@@ -32,7 +32,9 @@ public class QuestionManager {
     }
 
     public void addQuestoinToPlayersDatabase(User player, Question q) {
-        questionDAO.addQuestionToPlayer(player, q);
+        if(!UserManager.hasPlayerQuestion(q)) {
+            questionDAO.addQuestionToPlayer(player, q);
+        }
     }
 
     public void createQuestionPackFroUser(User player) {

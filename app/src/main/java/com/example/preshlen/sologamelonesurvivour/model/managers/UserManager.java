@@ -5,6 +5,7 @@ import android.content.Context;
 
 import com.example.preshlen.sologamelonesurvivour.model.classes.Question;
 import com.example.preshlen.sologamelonesurvivour.model.classes.User;
+import com.example.preshlen.sologamelonesurvivour.model.database.dao.QuestionDAO;
 import com.example.preshlen.sologamelonesurvivour.model.database.dao.UserDAO;
 
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ import java.util.Map;
 
 
 public class UserManager {
+    public static final int MAX_POINTS = 1000;
     public static User player;
     public static final int DECK_SIZE = 12;
 
@@ -30,8 +32,20 @@ public class UserManager {
         return ourInstance;
     }
 
-    //kato klikne se vika taq glupost v BUILDDECK
+
     public static void addQuestionToDeck(String s) {
+        for (Map.Entry<Integer, Question> entry : player.getAllQuestions().entrySet()) {
+            if (entry.getValue().getText().equals(s)) {
+                player.addQuestionToDeck(entry.getValue());
+                return;
+            }
+        }
+    }
+    public static void addQuestionToPlayer(Question q){
+
+    }
+
+    public static void addQuestionToAllQuestions(String s) {
         for (Map.Entry<Integer, Question> entry : player.getAllQuestions().entrySet()) {
             if (entry.getValue().getText().equals(s)) {
                 player.addQuestionToDeck(entry.getValue());
@@ -49,17 +63,10 @@ public class UserManager {
     }
 
     //pri ataka
-    public static Question removeQuestionFromDeck(String s) {
-        Question q = null;
-        for (Map.Entry<Integer, Question> entry : player.getAllQuestions().entrySet()) {
-            if (entry.getValue().getText().equals(s)) {
-                q = entry.getValue();
-                player.removeQuestionFromDeck(q);
-            }
-        }
-        return q;
-    }
 
+    public static boolean hasPlayerQuestion(Question q){
+        return player.getAllQuestions().containsValue(q);
+    }
 
     public static int getDeckFreeSpaceLeft() {
         return DECK_SIZE - (player.getDeck().size()+1);
@@ -111,12 +118,39 @@ public class UserManager {
     }
 
     public static Question getQuestionFromDeck(String question) {
+        Question quest = null;
         for(Question q : player.getDeck()) {
             if(q.getText().equals(question)) {
-                return q;
+                quest = q;
+                player.removeQuestionFromDeck(q);
+                break;
             }
         }
-        return null;
+        return quest;
+    }
+
+    public static void removeQuestionFromDeck(String question) {
+        for(Question q : player.getDeck()) {
+            if(q.getText().equals(question)) {
+                player.getDeck().remove(q);
+            }
+        }
+    }
+
+
+    public static int getPlayersPoints(){
+        return player.getPoints();
+    }
+
+    public static void addPlayerPoints(int points){
+        player.setPoints(player.getPoints() + points);
+    }
+    public static int getEnemysPoints(){
+        return player.getEnemyPoints();
+    }
+
+    public static void addEnemyPoints(int points){
+        player.setEnemyPoints(player.getEnemyPoints() + points);
     }
 }
 

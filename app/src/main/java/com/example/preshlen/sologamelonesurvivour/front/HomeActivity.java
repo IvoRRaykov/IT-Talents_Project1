@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 
 import com.example.preshlen.sologamelonesurvivour.R;
 import com.example.preshlen.sologamelonesurvivour.fragments.BuildDeckFragment;
@@ -18,6 +19,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
     Button startButton;
     Button buildDeckButton;
+    RelativeLayout rl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,9 +28,12 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 //----------
         qm.createQuestionPackFroUser(UserManager.getPlayer());
 //----------
+
+        rl = (RelativeLayout) findViewById(R.id.info_layout);
         startButton = (Button) findViewById(R.id.start_button);
         startButton.setOnClickListener(this);
         startButton.setVisibility(View.GONE);
+        rl.setVisibility(View.GONE);
 
         buildDeckButton = (Button) findViewById(R.id.build_deck_button);
         buildDeckButton.setOnClickListener(this);
@@ -65,6 +70,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 buildDeckButton.setVisibility(View.VISIBLE);
             }
             startButton.setVisibility(View.VISIBLE);
+            rl.setVisibility(View.VISIBLE);
         }
         super.onBackPressed();
     }

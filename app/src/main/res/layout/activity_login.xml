@@ -7,10 +7,14 @@
     <EditText
         android:text="ivo@abv.bg"
         android:id="@+id/emailField"
+        android:hint="Em@ail"
+        android:inputType="textEmailAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <EditText
+        android:hint="Password"
         android:text="Ivoqweasd12"
+        android:inputType="textPassword"
         android:id="@+id/passwordField"
         android:layout_below="@+id/emailField"
         android:layout_width="match_parent"

@@ -11,6 +11,9 @@ import java.util.TreeMap;
  * Created by Presshlen on 3/8/2016.
  */
 public class User {
+    private int points =0;
+    private int enemyPoints =0;
+
     private long userId;
     private String email;//this field is required
     private String password;//this field is required
@@ -27,8 +30,25 @@ public class User {
         this.setEmail(mail);
         this.setPassword(password);
         this.setUserName(userName);
-        this.setColor();
+        this.color = ColorEnum.BLUE;
+       // this.setColor();
 
+    }
+
+    public int getPoints() {
+        return points;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
+    }
+
+    public int getEnemyPoints() {
+        return enemyPoints;
+    }
+
+    public void setEnemyPoints(int enemyPoints) {
+        this.enemyPoints = enemyPoints;
     }
 
     public void addQuestionToDeck(Question q){

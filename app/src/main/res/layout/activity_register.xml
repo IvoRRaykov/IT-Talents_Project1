@@ -12,23 +12,27 @@
 
 
     <EditText
+        android:hint="Username"
         android:id="@+id/usernameField"
         android:inputType="text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <EditText
+        android:hint="Password"
         android:inputType="textPassword"
         android:id="@+id/passwordField"
         android:layout_below="@+id/usernameField"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <EditText
+        android:hint="Re.Password"
         android:inputType="textPassword"
         android:id="@+id/confirmPasswordField"
         android:layout_below="@+id/passwordField"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <EditText
+        android:hint="Em@il"
         android:inputType="textEmailAddress"
         android:id="@+id/emailField"
         android:layout_below="@+id/confirmPasswordField"

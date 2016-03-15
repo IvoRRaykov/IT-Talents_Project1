@@ -3,14 +3,74 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#50b3da"
     tools:context="com.example.presshlen.sologamelonesurvivour.front.HomeActivity">
 
+    <RelativeLayout
+        android:id="@+id/info_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/start_button"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:id="@+id/intro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="now quick intro" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/intro"
+            android:background="@drawable/layout_bg">
+
+            <TextView
+                android:id="@+id/yellow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:text="Zones in the yellow area will bring you 100pts and need 1 atack to destroy "
+                android:textColor="#b4ab00" />
+
+            <TextView
+                android:id="@+id/pink"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/yellow"
+                android:layout_marginLeft="10dp"
+                android:text="Zones in the pink area will bring you 250pts and need 2 atack to destroy "
+                android:textColor="#ea89f1" />
+
+            <TextView
+                android:id="@+id/green"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/pink"
+                android:layout_marginLeft="10dp"
+                android:text="Zones in the green area will bring you 400pts and need 1 atack to destroy "
+                android:textColor="#0ecb00" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/green"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="7dp"
+                android:text="The winning player is the one who makes 1000pts, win every zone on the map. You should also be careful with your atacks, since they are limited!"
+                android:textColor="#ffffff"/>
+
+        </RelativeLayout>
+    </RelativeLayout>
 
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="50dp" />
+        android:layout_margin="15dp" />
 
     <Button
         android:id="@+id/start_button"
@@ -24,9 +84,9 @@
         android:id="@+id/build_deck_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
         android:layout_below="@+id/start_button"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
         android:text="BUILD DECK" />
 
 

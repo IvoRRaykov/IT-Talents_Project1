@@ -18,17 +18,19 @@
             </intent-filter>
         </activity>
         <activity android:name=".front.RegisterActivity" />
-        <activity android:name=".front.HomeActivity"   />
-        <activity
-            android:name=".front.MapActivity"
-            android:screenOrientation="portrait" />
+        <activity android:name=".front.HomeActivity" />
+        <activity android:name=".front.MapActivity" />
         <activity android:name=".front.ChooseQuestionActivity" />
-        <activity android:name=".front.AnswerQuestionActivity"></activity>
-        <!-- ATTENTION: This was auto-generated to add Google Play services to your project for
-             App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
+        <activity android:name=".front.AnswerQuestionActivity" />
+        <!--
+             ATTENTION: This was auto-generated to add Google Play services to your project for
+             App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
+        -->
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+
+        <activity android:name=".front.FinalActivity" />
     </application>
 
 </manifest>
