@@ -32,7 +32,6 @@ public class UserManager {
         return ourInstance;
     }
 
-
     public static void addQuestionToDeck(String s) {
         for (Map.Entry<Integer, Question> entry : player.getAllQuestions().entrySet()) {
             if (entry.getValue().getText().equals(s)) {
@@ -41,20 +40,7 @@ public class UserManager {
             }
         }
     }
-    public static void addQuestionToPlayer(Question q){
 
-    }
-
-    public static void addQuestionToAllQuestions(String s) {
-        for (Map.Entry<Integer, Question> entry : player.getAllQuestions().entrySet()) {
-            if (entry.getValue().getText().equals(s)) {
-                player.addQuestionToDeck(entry.getValue());
-                return;
-            }
-        }
-    }
-
-    //pri pulnene na testeto
     public static boolean isDeckFull() {
         if (getDeckFreeSpaceLeft() == 0) {
             return true;
@@ -62,10 +48,18 @@ public class UserManager {
         return false;
     }
 
-    //pri ataka
 
     public static boolean hasPlayerQuestion(Question q){
         return player.getAllQuestions().containsValue(q);
+    }
+
+    public static boolean hasPlayerQuestion(String q){
+        for(Map.Entry<Integer,Question> entry: player.getAllQuestions().entrySet()){
+            if(entry.getValue().getText().equals(q)){
+                return true;
+            }
+        }
+        return false;
     }
 
     public static int getDeckFreeSpaceLeft() {
@@ -81,7 +75,6 @@ public class UserManager {
 
         return userDAO.checkUserEmail(email);
     }
-
 
     public long register(User user) {
         long id = userDAO.addUser(user);
@@ -108,6 +101,7 @@ public class UserManager {
         }
         return list.toArray(contents);
     }
+
     public static String[] getDeck(){
         List<String> list = new ArrayList<>();
         String[] contents = new String[player.getDeck().size()];
@@ -128,15 +122,6 @@ public class UserManager {
         }
         return quest;
     }
-
-    public static void removeQuestionFromDeck(String question) {
-        for(Question q : player.getDeck()) {
-            if(q.getText().equals(question)) {
-                player.getDeck().remove(q);
-            }
-        }
-    }
-
 
     public static int getPlayersPoints(){
         return player.getPoints();

@@ -12,12 +12,11 @@ import android.widget.Toast;
 
 import com.example.preshlen.sologamelonesurvivour.R;
 import com.example.preshlen.sologamelonesurvivour.model.enums.DominationEnum;
+import com.example.preshlen.sologamelonesurvivour.model.managers.QuestionManager;
 import com.example.preshlen.sologamelonesurvivour.model.managers.UserManager;
 
 public class MapActivity extends AppCompatActivity implements View.OnClickListener {
-
     Handler myHandler = new Handler();
-    String systemMsg = "";
 
     private TextView playerPoints;
     private TextView enemyPoints;
@@ -34,11 +33,6 @@ public class MapActivity extends AppCompatActivity implements View.OnClickListen
     private ImageView[] images;
 
     private static boolean isMyTurn;
-
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        //No call for super(). Bug on API Level > 11.
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,7 +83,7 @@ public class MapActivity extends AppCompatActivity implements View.OnClickListen
                 public void run() {
                     startActivityForResult(intent, 1);
                 }
-            }, 2000);
+            }, 3000);
 
         } else {
             Toast.makeText(MapActivity.this, "gofuckyourself", Toast.LENGTH_SHORT).show();
@@ -99,7 +93,6 @@ public class MapActivity extends AppCompatActivity implements View.OnClickListen
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//-----------------
 
         Bundle extras = data.getExtras();
         int zoneID = extras.getInt("zoneIDReturned");
@@ -123,10 +116,8 @@ public class MapActivity extends AppCompatActivity implements View.OnClickListen
             } else {
                 zone.setBackgroundResource(R.drawable.blue);
             }
-
         }
         checkIfFinish();
-
         isMyTurn = !isMyTurn;
         if (isMyTurn) {
             Toast.makeText(MapActivity.this, "My Turn To Defend Now!!!", Toast.LENGTH_SHORT).show();
@@ -135,8 +126,6 @@ public class MapActivity extends AppCompatActivity implements View.OnClickListen
             final Intent intent = new Intent(this, ChooseQuestionActivity.class);
             intent.putExtra("atacks", atackCounts(randomZoneID));
             intent.putExtra("zoneID", randomZoneID);
-
-
             myHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -144,7 +133,6 @@ public class MapActivity extends AppCompatActivity implements View.OnClickListen
                 }
             }, 3000);
         }
-
     }
 
     private void checkIfFinish() {
@@ -158,20 +146,21 @@ public class MapActivity extends AppCompatActivity implements View.OnClickListen
         }
     }
 
-
     private DominationEnum isThereFullDomination() {
         int blueCounter = 0;
         for (ImageView image : images) {
             if (isColorBlue(image)) blueCounter++;
         }
-        if (blueCounter == 0 || UserManager.getEnemysPoints() >= UserManager.MAX_POINTS || UserManager.getPlayer().getDeck().size() == 0) {
+        if (blueCounter == 0 || UserManager.getEnemysPoints() >= UserManager.MAX_POINTS
+                || UserManager.getPlayer().getDeck().size() == 0
+                || UserManager.getPlayer().getDeck().size() == 0) {
             return DominationEnum.YOU_LOSE;
-        } else if (blueCounter == images.length - 1 || UserManager.getPlayersPoints() >= UserManager.MAX_POINTS) {
+        } else if (blueCounter == images.length - 1 || UserManager.getPlayersPoints() >= UserManager.MAX_POINTS
+                || QuestionManager.getInstance(this).getEnemyQuestions().size() == 0) {
             return DominationEnum.YOU_WIN;
         }
         return DominationEnum.NO_FULL_DOMINATION;
     }
-
 
     int atackCounts(int zoneID) {
         int questionsToAsk = 0;
@@ -235,7 +224,6 @@ public class MapActivity extends AppCompatActivity implements View.OnClickListen
         }
         return pointsToAdd;
     }
-
 
     public void onBackPressed() {
 

@@ -1,4 +1,4 @@
-    package com.example.preshlen.sologamelonesurvivour.front;
+package com.example.preshlen.sologamelonesurvivour.front;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -14,13 +14,18 @@ import android.widget.Toast;
 
 import com.example.preshlen.sologamelonesurvivour.R;
 import com.example.preshlen.sologamelonesurvivour.model.classes.Question;
+import com.example.preshlen.sologamelonesurvivour.model.managers.QuestionManager;
 import com.example.preshlen.sologamelonesurvivour.model.managers.UserManager;
 
 import org.w3c.dom.Text;
 
-    public class ChooseQuestionActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
-    int questionsToAsk = 0;
-    int zoneID = 0;
+import java.util.HashMap;
+
+public class ChooseQuestionActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
+   private int questionsToAsk = 0;
+    private int zoneID = 0;
+
+    QuestionManager qm = QuestionManager.getInstance(this);
     ListView questionsList;
     ArrayAdapter adapter;
     TextView leftAttacks;
@@ -89,9 +94,17 @@ import org.w3c.dom.Text;
     }
 
     void botChoseQuestion() {
-        Intent intent = new Intent(this, AnswerQuestionActivity.class);
-        intent.putExtra("question", UserManager.getPlayer().getDeck().get(2));
+        HashMap<Integer, Question> questions = qm.getEnemyQuestions();
+        int random = 0 + (int)(Math.random() * (((questions.size()-1) - 0) + 1));
+        qm.removeQuestionFromEnemiesQuestions(questions.get(random));
         this.questionsToAsk--;
+
+        Intent intent = new Intent(this, AnswerQuestionActivity.class);
+        intent.putExtra("question", questions.get(random));
         startActivityForResult(intent, 2);
+    }
+
+    public void onBackPressed() {
+
     }
 }

@@ -15,7 +15,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     // database name and version
-    public static final String DATABASE_NAME = "NA_IVO_BAZATA4";
+    public static final String DATABASE_NAME = "NA_IVO_BAZATA6";
     public static final int DATABASE_VERSION = 1;
 
     // tables
@@ -69,35 +69,40 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     private static final String FILL_QUESTIONS = "INSERT INTO " + QUESTIONS + " " + QUESTION_COLS + " VALUES"
-            + " (" + "\"question1\", " + "\"answerr11\", " + "\"answer12\", " + "\"answer13\", " + "\"answer14\" ), "
-            + " (" + "\"question2\", " + "\"answerr21\", " + "\"answer22\", " + "\"answer23\", " + "\"answer24\" ), "
-            + " (" + "\"question3\", " + "\"answerr31\", " + "\"answer32\", " + "\"answer33\", " + "\"answer34\" ), "
-            + " (" + "\"question4\", " + "\"answerr41\", " + "\"answer42\", " + "\"answer43\", " + "\"answer44\" ), "
-            + " (" + "\"question5\", " + "\"answerr11\", " + "\"answer12\", " + "\"answer13\", " + "\"answer14\" ), "
-            + " (" + "\"question6\", " + "\"answerr11\", " + "\"answer12\", " + "\"answer13\", " + "\"answer14\" ), "
-            + " (" + "\"question7\", " + "\"answerr11\", " + "\"answer12\", " + "\"answer13\", " + "\"answer14\" ), "
-            + " (" + "\"question8\", " + "\"answerr11\", " + "\"answer12\", " + "\"answer13\", " + "\"answer14\" ), "
-            + " (" + "\"question9\", " + "\"answerr11\", " + "\"answer12\", " + "\"answer13\", " + "\"answer14\" ), "
-            + " (" + "\"question10\", " + "\"answerr11\", " + "\"answer12\", " + "\"answer13\", " + "\"answer14\" ), "
-            + " (" + "\"question11\", " + "\"answerr11\", " + "\"answer12\", " + "\"answer13\", " + "\"answer14\" ), "
-            + " (" + "\"question12\", " + "\"answerr11\", " + "\"answer12\", " + "\"answer13\", " + "\"answer14\" ), "
-            + " (" + "\"question13\", " + "\"answerr11\", " + "\"answer12\", " + "\"answer13\", " + "\"answer14\" ), "
-            + " (" + "\"question14\", " + "\"answerr11\", " + "\"answer12\", " + "\"answer13\", " + "\"answer14\" ), "
-            + " (" + "\"question15\", " + "\"answerr11\", " + "\"answer12\", " + "\"answer13\", " + "\"answer14\" ), "
-            + " (" + "\"question16\", " + "\"answerr11\", " + "\"answer12\", " + "\"answer13\", " + "\"answer14\" ), "
-            + " (" + "\"question17\", " + "\"answerr11\", " + "\"answer12\", " + "\"answer13\", " + "\"answer14\" ), "
-            + " (" + "\"question18\", " + "\"answerr11\", " + "\"answer12\", " + "\"answer13\", " + "\"answer14\" ), "
-            + " (" + "\"question19\", " + "\"answerr11\", " + "\"answer12\", " + "\"answer13\", " + "\"answer14\" ), "
-            + " (" + "\"question20\", " + "\"answerr11\", " + "\"answer12\", " + "\"answer13\", " + "\"answer14\" ), "
-            + " (" + "\"question21\", " + "\"answerr11\", " + "\"answer12\", " + "\"answer13\", " + "\"answer14\" ), "
-            + " (" + "\"question22\", " + "\"answerr11\", " + "\"answer12\", " + "\"answer13\", " + "\"answer14\" ), "
-            + " (" + "\"question23\", " + "\"answerr11\", " + "\"answer12\", " + "\"answer13\", " + "\"answer14\" ), "
-            + " (" + "\"question24\", " + "\"answerr11\", " + "\"answer12\", " + "\"answer13\", " + "\"answer14\" ), "
-            + " (" + "\"question25\", " + "\"answerr11\", " + "\"answer12\", " + "\"answer13\", " + "\"answer14\" ), "
-            + " (" + "\"question26\", " + "\"answerr11\", " + "\"answer12\", " + "\"answer13\", " + "\"answer14\" ), "
-            + " (" + "\"question27\", " + "\"answerr11\", " + "\"answer12\", " + "\"answer13\", " + "\"answer14\" ), "
-            + " (" + "\"question28\", " + "\"answerr11\", " + "\"answer12\", " + "\"answer13\", " + "\"answer14\" ), "
-            + " (" + "\"question29\", " + "\"answerr11\", " + "\"answer12\", " + "\"answer13\", " + "\"answer14\" );";
+            + " (" + "\"kak se kazva na ivo kotkata\", " + "\"kiki\", " + "\"miki\", " + "\"kotka\", " + "\"random\" ), "
+            + " (" + "\"ot koga ivo ne igrae dota\", " + "\"ot kakto pochna talanti\", " + "\"ot vchera\", " + "\"igrae dota\", " + "\"predi 17 dni\" ), "
+            + " (" + "\"ot koga ivo ne igrae voleybol\", " + "\"ot kakto pochna talanti\", " + "\"nikoga ne e igral!?\", " + "\"oshte igrae\", " + "\"predi mesec\" ), "
+            + " (" + "\"kak se kazva ivo\", " + "\"ivo\", " + "\"ivelin\", " + "\"ivaylo\", " + "\"ne znam!?\" ), "
+            + " (" + "\"kak se kazva na donika zaeka\", " + "\"zaek\", " + "\"misho\", " + "\"koko\", " + "\"shteryo\" ), "
+            + " (" + "\"kakva e na mitko kolata\", " + "\"mercedes\", " + "\"pejo\", " + "\"bmw\", " + "\"alfaromeo?\" ), "
+            + " (" + "\"kakvo pravq v svobodnoto si vreme\", " + "\"nqmam\", " + "\"igraq voley\", " + "\"igraq futbol\", " + "\"gledam filmi\" ), "
+            + " (" + "\"kakvo pravi donika v svobodnoto si vreme\", " + "\"qde\", " + "\"kodi\", " + "\"uchi\", " + "\"pishe si fb\" ), "
+            + " (" + "\"kakvo obicham nay mnogo\", " + "\"koda\", " + "\"piene\", " + "\"qdene\", " + "\"pushene\" ), "
+            + " (" + "\"kolko ciagri pushi ivo na den\", " + "\"0\", " + "\"10\", " + "\"20\", " + "\"5\" ), "
+            + " (" + "\"kolko struva na ivo surceto\", " + "\"bezcenno e\", " + "\"20lv\", " + "\"bez pari\", " + "\"po pazurluk\" ), "
+            + " (" + "\"kude e skril ivo klyucha za surceto si\", " + "\"vuv surceto si ?\", " + "\"pod legloto\", " + "\"na tavana\", " + "\"v moreto\" ), "
+            + " (" + "\"kolko epizoda na twilight e gledal ivo\", " + "\"0\", " + "\"baq\", " + "\"mnogo\", " + "\"vsichki\" ), "
+            + " (" + "\"kolko epizoda na prisonbreak e gledal ivo\", " + "\"vsichki\", " + "\"baq\", " + "\"mnogo\", " + "\"malko\" ), "
+            + " (" + "\"kolko epizoda na shaman king e gledal ivo\", " + "\"vsichki\", " + "\"malko\", " + "\"0\", " + "\"mnogo\" ), "
+            + " (" + "\"kolko epizoda na GOT e gledal ivo\", " + "\"vs\", " + "\"0\", " + "\"1\", " + "\"2\" ), "
+            + " (" + "\"kak spi ivo\", " + "\"po lice\", " + "\"pogrub\", " + "\"nastrani\", " + "\"na drugata strana\" ), "
+            + " (" + "\"kak spi donika\", " + "\"vsqkak, stiga da spi :D\", " + "\"pogrub\", " + "\"police\", " + "\"nastrani\" ), "
+            + " (" + "\"kude obicha da spi ivo\", " + "\"u tqh\", " + "\"na kvartira\", " + "\"v obshtaka\", " + "\"v karavana\" ), "
+            + " (" + "\"kolko tochno voda pie ivo na den\", " + "\"malko\", " + "\"baq\", " + "\"ne pie\", " + "\"vsichkata voda ot cheshmata\" ), "
+            + " (" + "\"kude obicha da hodi ivo\", " + "\"v maniqta da igrae dota\", " + "\"na diskoteka\", " + "\"na kunki\", " + "\"u donika\" ), "
+            + " (" + "\"kak se kazva na ivo sukvartiranta\", " + "\"ivan\", " + "\"mariq\", " + "\"iveta\", " + "\"krisi\" ), "
+            + " (" + "\"koy pomogna na ivo s bazata ?!?!?\", " + "\"DIDIII\", " + "\"tati\", " + "\"mama\", " + "\"kaka\" ), "
+            + " (" + "\"kogo go bolqt ochichkite ot tiq vuprosi\", " + "\"ivcho\", " + "\"krasi (Opredeleno krasi :D )\", " + "\"mitko\", " + "\"dyanko\" ), "
+            + " (" + "\"kolko shte struva tova prilojenie\", " + "\"null\", " + "\"milioni$\", " + "\"baq\", " + "\"mnogo\" ), "
+            + " (" + "\"kakuv e laptopa na ivo\", " + "\"asus\", " + "\"lenovo\", " + "\"nqkuv slab\", " + "\"dell\" ), "
+            + " (" + "\"s kakvo idva ivo ot talanti\", " + "\"88 -> 102 -> 7\", " + "\"102\", " + "\"88\", " + "\"77\" ), "
+            + " (" + "\"znae l iivo kak da insertva v bazata\", " + "\"ne\", " + "\"da\", " + "\"absolyutno\", " + "\"malko\" ), "
+            + " (" + "\"kolko hora obichat ivo\", " + "\"0\", " + "\"baq\", " + "\"mnogo\", " + "\"malko\" ), "
+            + " (" + "\"shte ima li ivo budeshte?\", " + "\"ne\", " + "\"da\", " + "\"absolyutno\", " + "\"slabo...\" ), "
+            + " (" + "\"kolko puti ivo si e chupil ruakta\", " + "\"1\", " + "\"2\", " + "\"3\", " + "\"4\" ), "
+            + " (" + "\"kakuv cvqt e kotkata na ivo\", " + "\"bqlo-cherna\", " + "\"bqla\", " + "\"cherna\", " + "\"sharena\" ), "
+            + " (" + "\"kolko pari struva kotkata na ivo\", " + "\"bezcenna\", " + "\"2lv\", " + "\"malko\", " + "\"4lv\" ), "
+            + " (" + "\"znae li ivo kak da si pishe koda\", " + "\"ne\", " + "\"absolyutno\", " + "\"da\", " + "\"malko\" );";
 
 
 

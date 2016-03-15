@@ -127,9 +127,6 @@ public class AnswerQuestionActivity extends AppCompatActivity implements View.On
 
     }
 
-
-
-
     TextView randomAnswer(){
         int rand = 1 + (int)(Math.random() * ((4 - 1) + 1));
         switch (rand){
@@ -144,5 +141,9 @@ public class AnswerQuestionActivity extends AppCompatActivity implements View.On
 
         }
         return null;
+    }
+
+    public void onBackPressed() {
+
     }
 }

@@ -31,6 +31,7 @@ public class FinalActivity extends AppCompatActivity {
         quit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                finish();
                 System.exit(0);
             }
         });
@@ -44,6 +45,8 @@ public class FinalActivity extends AppCompatActivity {
         });
 
     }
+    public void onBackPressed() {
 
+    }
 
 }
