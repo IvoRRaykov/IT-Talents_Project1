@@ -152,11 +152,10 @@ public class MapActivity extends AppCompatActivity implements View.OnClickListen
             if (isColorBlue(image)) blueCounter++;
         }
         if (blueCounter == 0 || UserManager.getEnemysPoints() >= UserManager.MAX_POINTS
-                || UserManager.getPlayer().getDeck().size() == 0
-                || UserManager.getPlayer().getDeck().size() == 0) {
+                || UserManager.getPlayer().getDeck().size() <= 2 ) {
             return DominationEnum.YOU_LOSE;
         } else if (blueCounter == images.length - 1 || UserManager.getPlayersPoints() >= UserManager.MAX_POINTS
-                || QuestionManager.getInstance(this).getEnemyQuestions().size() == 0) {
+                || QuestionManager.getInstance(this).getEnemyQuestions().size() <= 3) {
             return DominationEnum.YOU_WIN;
         }
         return DominationEnum.NO_FULL_DOMINATION;
